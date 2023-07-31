@@ -44,7 +44,7 @@ public class ProdDelController extends HttpServlet {
 		String fname = arr[arr.length-1];
 		File f = new File(uploadPath+fname);
 		f.delete();
-		response.sendRedirect("/shop2/seller/List");
+		response.sendRedirect("/jsp_prj/seller/List");
 	}
 
 	/**

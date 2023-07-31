@@ -51,7 +51,7 @@ public class EditController extends HttpServlet {
 		p.setContent(request.getParameter("content"));
 
 		service.editProduct(p);
-		response.sendRedirect("/shop2/seller/List");
+		response.sendRedirect("/jsp_prj/seller/List");
 	}
 
 	/**
