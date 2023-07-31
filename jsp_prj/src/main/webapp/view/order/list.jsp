@@ -11,6 +11,13 @@
 <a href="${pageContext.request.contextPath }/view/member/result.jsp">
 내정보
 </a><br>
+<a href="/jsp_prj/order/myList?o_state=0">
+주문내역
+</a><br>
+<a href="/jsp_prj/order/myList?o_state=1">
+장바구니
+</a><br>
+
 <h3>전체 상품</h3>
 <table border="1">
 <tr><th>상품이미지</th><th>상품명</th><th>가격</th></tr>
