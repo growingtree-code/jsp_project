@@ -12,4 +12,6 @@ public interface Service {
 	int makeNum();
 	ArrayList<Product> getProductAll();
 	Product editQuantity(int q, int num);
+	ArrayList<Product> getSortProduct(String standard);
+	
 }

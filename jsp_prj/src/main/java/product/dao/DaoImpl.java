@@ -304,5 +304,45 @@ public class DaoImpl implements Dao {
 
 		
 	}
+	//Á¤·Ä
+	public ArrayList<Product> sortProduct(String standard) {
+		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		ResultSet rs = null;
+		ArrayList<Product> products = new ArrayList<Product>();
+		PreparedStatement pstmt = null;
+				
+	   String sql = "SELECT * FROM shop_product";
+
+	    if ("price".equals(standard) || "price desc".equals(standard)||"num".equals(standard)) {
+	        sql += " ORDER BY " + standard;
+	    } else {
+	        sql += " ORDER BY product_id";
+	    }
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				products.add(new Product(rs.getInt(1), rs.getString(2), rs
+						.getInt(3), rs.getInt(4), rs.getString(5), rs
+						.getString(6), rs.getString(7)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return products;
+	}
 
 }

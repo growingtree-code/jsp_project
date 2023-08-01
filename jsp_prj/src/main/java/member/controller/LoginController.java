@@ -61,7 +61,6 @@ public class LoginController extends HttpServlet {
 			}
 		}
 
-		// 硫붾돱 �럹�씠吏�濡� �씠�룞
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		if (dispatcher != null) {
 			dispatcher.forward(request, response);

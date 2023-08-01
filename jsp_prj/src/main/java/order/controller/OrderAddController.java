@@ -45,7 +45,7 @@ public class OrderAddController extends HttpServlet {
 		o.setO_id(o_id);
 		o.setO_state(Integer.parseInt(request.getParameter("o_state")));
 		service.addOrder(o);
-		String path = "/jsp_prj/order/myList?o_state=";//장바구니담기 이게문제였음
+		String path = "/jsp_prj/order/myList?o_state=";
 		path += o.getO_state();
 		response.sendRedirect(path);
 	}

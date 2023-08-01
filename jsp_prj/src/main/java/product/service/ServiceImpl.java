@@ -54,5 +54,9 @@ public class ServiceImpl implements Service {
 		dao.updateQuantity(q, num);
 		return getProduct(num);
 	}
-
+	
+	public ArrayList<Product> getSortProduct(String standard) {
+		// TODO Auto-generated method stub
+		return dao.sortProduct(standard);
+	}
 }

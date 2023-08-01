@@ -19,6 +19,17 @@
 </a><br>
 
 <h3>전체 상품</h3>
+<form action="${pageContext.request.contextPath }/order/list" method="post">
+<h5>상품 정렬</h5>
+<td>
+	<select name ="sort" onchange="this.form.submit()">
+		<option value="0">정렬 선택</option>
+		<option value="num">최신순</option>
+		<option value="price">가격낮은순</option>
+		<option value="price desc">가격높은순</option>
+	</select>
+</td>
+</form>
 <table border="1">
 <tr><th>상품이미지</th><th>상품명</th><th>가격</th><th>리뷰</th></tr>
 <c:forEach var="p" items="${products }">

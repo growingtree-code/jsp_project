@@ -20,4 +20,7 @@ public interface Dao {
 	ArrayList<Product> selectAll();
 	
 	void updateQuantity(int q, int num);
+	
+	//Á¤·Ä
+	ArrayList<Product> sortProduct(String standard);
 }
