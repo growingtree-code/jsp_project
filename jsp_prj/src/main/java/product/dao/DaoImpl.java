@@ -94,7 +94,7 @@ public class DaoImpl implements Dao {
 		return product;
 	}
 	
-	public ArrayList<Product> selectAllById(String s_id) {
+	public ArrayList<Product> selectAllById(String s_id, String std) {
 		// TODO Auto-generated method stub
 		Connection conn = db.getConnection();
 		ResultSet rs = null;
@@ -103,6 +103,11 @@ public class DaoImpl implements Dao {
 
 		String sql = "select * from shop_product where s_id=?";
 		
+		 if ("price".equals(std) || "price desc".equals(std)||"num".equals(std)) {
+		        sql += " ORDER BY " + std;
+		    } else {
+		        sql += " ORDER BY product_id";
+		    }
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

@@ -5,7 +5,7 @@ import model.Product;
 
 public interface Service {
 	void add(Product p);
-	ArrayList<Product> getProductsById(String s_id);
+	ArrayList<Product> getProductsById(String s_id,String std);
 	Product getProduct(int num);
 	void editProduct(Product p);
 	void delProduct(int num);

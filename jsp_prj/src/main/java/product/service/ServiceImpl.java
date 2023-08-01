@@ -19,9 +19,9 @@ public class ServiceImpl implements Service {
 		dao.insert(p);
 	}
 
-	public ArrayList<Product> getProductsById(String s_id) {
+	public ArrayList<Product> getProductsById(String s_id,String std) {
 		// TODO Auto-generated method stub
-		return dao.selectAllById(s_id);
+		return dao.selectAllById(s_id, std);
 	}
 
 	public Product getProduct(int num) {

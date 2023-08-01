@@ -36,9 +36,26 @@ public class ListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Service service = new ServiceImpl();
+		
+		
 		HttpSession session = request.getSession(false);
 		String s_id = (String) session.getAttribute("id");
-		ArrayList<Product> products = service.getProductsById(s_id);
+		String std = request.getParameter("sort");
+		ArrayList<Product> products = service.getProductsById(s_id,std);
+
+		if (std==null) {
+			products= service.getProductsById(s_id,"num");
+		}
+		else if(std.equals("num")) {
+			products= service.getProductsById(s_id,"num");
+		}else if (std.equals("price")) {
+			products= service.getProductsById(s_id,"price");
+		}else if (std.equals("price desc")) {
+			products= service.getProductsById(s_id,"price desc");
+		}else {
+			products= service.getProductsById(s_id,"num");
+		}
+		
 		request.setAttribute("products", products);
 		String path = "/view/seller/list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);

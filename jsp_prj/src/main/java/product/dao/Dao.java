@@ -9,7 +9,7 @@ public interface Dao {
 	
 	void insert(Product p);
 
-	ArrayList<Product> selectAllById(String s_id);
+	ArrayList<Product> selectAllById(String s_id,String std);
 	
 	Product select(int num);
 	
