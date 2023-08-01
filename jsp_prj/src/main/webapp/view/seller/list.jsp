@@ -28,10 +28,11 @@
 </form>
 
 <table border="1">
-<tr><th>상품번호</th><th>상품명</th><th>리뷰</th></tr>
+<tr><th>상품번호</th><th>상품명</th><th>상품카테고리</th><th>리뷰</th></tr>
 <c:forEach var="p" items="${products }">
 <tr>
 <td>${p.num }</td><td><a href="${pageContext.request.contextPath }/seller/detail?num=${p.num }">${p.name }</a></td>
+<td>${p.category }</td>
 <td>
 <a href="${pageContext.request.contextPath }/review/list?num=${p.num }">리뷰보기</a>
 </td>

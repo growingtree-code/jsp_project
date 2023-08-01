@@ -26,6 +26,9 @@
 <th>상품명</th><td>${p.name }</td>
 </tr>
 <tr>
+<th>카테고리</th><td>${p.category }</td>
+</tr>
+<tr>
 <th>가격</th><td>${p.price }</td>
 </tr>
 <tr>

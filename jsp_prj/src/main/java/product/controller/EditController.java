@@ -46,6 +46,7 @@ public class EditController extends HttpServlet {
 
 		p.setNum(Integer.parseInt(request.getParameter("num")));
 		p.setName(request.getParameter("name"));
+		p.setCategory(request.getParameter("category"));
 		p.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 		p.setPrice(Integer.parseInt(request.getParameter("price")));
 		p.setContent(request.getParameter("content"));

@@ -55,21 +55,17 @@ public class AddController extends HttpServlet {
 		//String uploadPath = "C:\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\shop_img";
 		String uploadPath = "C:\\eclipseworkspace\\web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\shop_img";
 		try {
-			// request,占쎈솁占쎌뵬占쏙옙占쎌삢野껋럥以�,占쎌뒠占쎌쎗,占쎌뵥�굜遺얜뎃占쏙옙占쎌뿯,餓λ쵎�궗占쎈솁占쎌뵬筌뤿굞肉� 占쏙옙占쎈립 疫꿸퀡�궚 占쎌젟筌�占�
 			multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			p.setName(multi.getParameter("name"));
+			p.setCategory(multi.getParameter("category"));
 			p.setQuantity(Integer.parseInt(multi.getParameter("quantity")));
 			p.setPrice(Integer.parseInt(multi.getParameter("price")));
 			p.setContent(multi.getParameter("content"));
-			// 占쎌읈占쎈꽊占쎈립 占쎌읈筌ｏ옙 占쎈솁占쎌뵬占쎌뵠�뵳袁⑤굶占쎌뱽 揶쏉옙占쎌죬占쎌긾
 			Enumeration files = multi.getFileNames();
 
 			while (files.hasMoreElements()) {
-				// form 占쎄묶域밸챷肉됵옙苑� <input type="file" name="占쎈연疫꿸퀣肉� 筌욑옙占쎌젟占쎈립 占쎌뵠�뵳占�" />占쎌뱽 揶쏉옙占쎌죬占쎌궔占쎈뼄.
-				String file1 = (String) files.nextElement();// 占쎈솁占쎌뵬 input占쎈퓠 筌욑옙占쎌젟占쎈립 占쎌뵠�뵳袁⑹뱽 揶쏉옙占쎌죬占쎌긾
-				// 域밸챷肉� 占쎈퉸占쎈뼣占쎈릭占쎈뮉 占쎈뼄占쎌삺 占쎈솁占쎌뵬 占쎌뵠�뵳袁⑹뱽 揶쏉옙占쎌죬占쎌긾
+				String file1 = (String) files.nextElement();
 				img = multi.getOriginalFileName(file1);
-				//占쎈솁占쎌뵬占쎈씜嚥≪뮆諭�
 				File file = multi.getFile(file1);
 			}
 		} catch (Exception e) {

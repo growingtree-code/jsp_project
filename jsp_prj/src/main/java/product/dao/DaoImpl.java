@@ -25,7 +25,7 @@ public class DaoImpl implements Dao {
 		
 		Connection conn = db.getConnection();
 		
-		String sql = "insert into shop_product values(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into shop_product values(?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -37,6 +37,7 @@ public class DaoImpl implements Dao {
 			pstmt.setString(5, p.getImg());
 			pstmt.setString(6, p.getContent());
 			pstmt.setString(7, p.getS_id());
+			pstmt.setString(8, p.getCategory());
 			pstmt.executeUpdate();
 					
 		} catch (SQLException e) {
@@ -72,7 +73,7 @@ public class DaoImpl implements Dao {
 			if (rs.next()) {
 				product = new Product(rs.getInt(1), rs.getString(2),
 						rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6), rs.getString(7));
+						rs.getString(6), rs.getString(7),rs.getString(8));
 			}
 			
 			rs.close();
@@ -116,7 +117,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				products.add(new Product(rs.getInt(1), rs.getString(2), rs
 						.getInt(3), rs.getInt(4), rs.getString(5), rs
-						.getString(6), rs.getString(7)));
+						.getString(6), rs.getString(7),rs.getString(8)));
 			}
 			
 		} catch (SQLException e) {
@@ -144,7 +145,7 @@ public class DaoImpl implements Dao {
 		Connection conn = db.getConnection();
 
 		String sql = "update shop_product set name=?, quantity=?,"
-				+ " price=?, content=? where num=?";
+				+ " price=?, content=?, category=? where num=?";
 		
 		PreparedStatement pstmt = null;
 		try {
@@ -153,7 +154,8 @@ public class DaoImpl implements Dao {
 			pstmt.setInt(2, p.getQuantity());
 			pstmt.setInt(3, p.getPrice());
 			pstmt.setString(4, p.getContent());
-			pstmt.setInt(5, p.getNum());
+			pstmt.setString(5, p.getCategory());
+			pstmt.setInt(6, p.getNum());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -256,7 +258,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				products.add(new Product(rs.getInt(1), rs.getString(2), rs
 						.getInt(3), rs.getInt(4), rs.getString(5), rs
-						.getString(6), rs.getString(7)));
+						.getString(6), rs.getString(7),rs.getString(8)));
 			}
 			
 			rs.close();
@@ -331,7 +333,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				products.add(new Product(rs.getInt(1), rs.getString(2), rs
 						.getInt(3), rs.getInt(4), rs.getString(5), rs
-						.getString(6), rs.getString(7)));
+						.getString(6), rs.getString(7),rs.getString(8)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

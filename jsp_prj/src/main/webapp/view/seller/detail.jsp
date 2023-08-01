@@ -24,6 +24,9 @@
 <th>상품명</th><td><input type="text" value="${p.name }" name="name"></td>
 </tr>
 <tr>
+<th>카테고리</th><td><input type="text" value="${p.category }" name="category"></td>
+</tr>
+<tr>
 <th>가격</th><td><input type="text" value="${p.price }" name="price"></td>
 </tr>
 <tr>
