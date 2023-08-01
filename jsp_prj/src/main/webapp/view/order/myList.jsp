@@ -19,6 +19,9 @@
 <table border="1">
 <tr>
 <th>주문번호</th><th>제품명</th><th>사진</th><th>주문수량</th><th>결제금액</th><th>주문일</th>
+<c:if test="${o_state==0 }">
+<th>리뷰</th>
+</c:if>
 </tr>
 <c:forEach var="o" items="${list }">
 <tr>
@@ -26,6 +29,13 @@
 <td><a href="${pageContext.request.contextPath }/seller/detail?num=${o.pro_num }">${o.prod_name }</a></td>
 <td><img src="${o.prod_img }" width="200" height="200"></td>
 <td>${o.order_num }</td><td>${o.total_price }</td><td>${o.o_date }</td>
+
+<c:if test="${o_state==0 }">
+<td>
+	<a href="${pageContext.request.contextPath }/review/write?num=${o.pro_num }">리뷰 작성</a>
+</td>
+</c:if>
+
 </tr>
 </c:forEach>
 </table>
