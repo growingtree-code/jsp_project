@@ -40,5 +40,13 @@ public class ServiceImpl implements Service {
 		// TODO Auto-generated method stub
 		dao.delete(num);
 	}
+	
+	@Override
+	public double calcDiscount(String o_id) {
+		// TODO Auto-generated method stub
+		return dao.calcDiscount(o_id);
+	}
+	
+	
 
 }

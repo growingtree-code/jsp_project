@@ -145,4 +145,45 @@ public class DaoImpl implements Dao {
 		}
 	}
 
+	@Override
+	public double calcDiscount(String o_id) {
+		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		int count=0;
+		String sql = "select count(*) from shop_order where o_id=? and o_state = 0";
+		ResultSet rs = null;
+		try {
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, o_id);
+			rs = pstm.executeQuery();
+			if(rs.next()) {
+				count = (int)rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(count==0) {
+			return 0;
+		} else if(count<=5) {
+			return 0.05;
+		} else if(count<=10) {
+			return 0.10;
+		} else {
+			return 0.20;
+		}
+		
+	}
+	
+	
+
 }

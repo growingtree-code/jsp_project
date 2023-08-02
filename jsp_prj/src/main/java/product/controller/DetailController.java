@@ -42,6 +42,7 @@ public class DetailController extends HttpServlet {
 
 		int type = (Integer) session.getAttribute("memberType");
 		int num = Integer.parseInt(request.getParameter("num"));
+		String id = (String)session.getAttribute("id");
 
 		Service service = new ServiceImpl();
 
@@ -49,6 +50,10 @@ public class DetailController extends HttpServlet {
 		request.setAttribute("p", p);
 		if (type == 2) {
 			path = "/view/order/detail.jsp";
+			
+			order.service.Service orderservice = new order.service.ServiceImpl();
+			double discount = orderservice.calcDiscount(id);
+			request.setAttribute("discount", discount);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(path);

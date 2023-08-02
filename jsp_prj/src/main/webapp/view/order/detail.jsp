@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
-	function a(price){
+	function a(price, discount){
 		var sel = f.quantity.options[f.quantity.selectedIndex].value;
 		var q = parseInt(sel);
-		var total = q*price;
+		var total = Math.ceil(q*price*(1-discount));
 		f.total_price.value = total;
 	}
 	
@@ -29,10 +29,10 @@
 <th>카테고리</th><td>${p.category }</td>
 </tr>
 <tr>
-<th>가격</th><td>${p.price }</td>
+<th>가격</th><td><span style="text-decoration: line-through;">${p.price } </span><br>${p.price * (1-discount) }</td>
 </tr>
 <tr>
-<th>주문수량</th><td><select name="quantity" onchange="a(${p.price })">
+<th>주문수량</th><td><select name="quantity" onchange="a(${p.price }, ${discount })">
 <option value="0">수량선택</option>
 <option value="1">1</option>
 <option value="2">2</option>

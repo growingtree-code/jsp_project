@@ -10,4 +10,5 @@ public interface Dao {
 	ArrayList<Order> selectAll(String o_id, int o_state);
 	void delete(int num);
 	void update(String type, int num);
+	double calcDiscount(String o_id);
 }
