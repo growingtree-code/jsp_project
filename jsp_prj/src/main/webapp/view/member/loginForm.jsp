@@ -4,28 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-<h3>로그인</h3>
-<form name="f" 
-action="${pageContext.request.contextPath }/LoginController" 
-method="post">
-<table border="1">
-<tr>
-<td>id</td>
-<td><input type="text" name="id"></td>
-</tr>
-<tr>
-<td>pwd</td>
-<td><input type="password" name="pwd"></td>
-</tr>
-<tr>
-<td colspan="2"><input type="submit" value="로그인">
-<a href="${pageContext.request.contextPath }/view/member/form.jsp">회원가입</a>
-</td>
-</tr>
-</table>
-</form>
+<div class="container border border-primary rounded-4 border-opacity-25" style="margin-top: 30px; padding: 30px;" >
+	<h3 class="text-primary">로그인</h3>
+	<br>
+	<form name="f" action="${pageContext.request.contextPath }/LoginController" method="post">
+		<div class="mb-3">
+			<label for="id" class="form-label">ID</label>
+			<input type="text" class="form-control" name="id" id="id">
+		</div>
+		
+		<div class="mb-3">
+			<label for="pwd" class="form-label">PWD</label>
+			<input type="password" class="form-control" name="pwd" id="pwd">
+		</div>
+		
+		<button type="submit" class="btn btn-primary">로그인</button>
+		<a class="btn btn-primary" href="${pageContext.request.contextPath }/view/member/form.jsp">회원가입</a>
+	</form>
+</div>
 </body>
 </html>
