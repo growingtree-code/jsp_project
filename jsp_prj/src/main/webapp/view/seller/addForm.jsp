@@ -11,7 +11,13 @@
 <form action="${pageContext.request.contextPath }/seller/Add" method="post" 
 enctype="multipart/form-data">
 상품명:<input type="text" name="name"><br>
-카테고리:<input type="text" name="category"><br>
+<select name ="category">
+	<option value="0">카테고리선택</option>
+	<option value="FOOD">음식</option>
+	<option value="FURNITURE">가구</option>
+	<option value="IT">IT제품</option>
+</select>
+<br>
 수량 : <input type="text" name="quantity"><br>
 가격 : <input type="text" name="price"><br>
 상품이미지등록:<input type="file" name="file"><br>
