@@ -30,6 +30,17 @@
 	</select>
 </td>
 </form>
+<form action="${pageContext.request.contextPath }/order/list" method="post">
+<th>카테고리별 정렬</th>
+<td>
+	<select name ="category" onchange="this.form.submit()">
+		<option value="0">정렬 선택</option>
+		<option value="FOOD">음식</option>
+		<option value="FURNITURE">가구</option>
+		<option value="IT">IT제품</option>
+	</select>
+</td>
+</form>
 <table border="1">
 <tr><th>상품이미지</th><th>상품명</th><th>카테고리</th><th>가격</th><th>리뷰</th></tr>
 <c:forEach var="p" items="${products }">

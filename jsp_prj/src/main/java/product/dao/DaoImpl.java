@@ -109,7 +109,7 @@ public class DaoImpl implements Dao {
 		    } else {
 		        sql += " ORDER BY product_id";
 		    }
-		
+		 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, s_id);
@@ -137,7 +137,43 @@ public class DaoImpl implements Dao {
 		
 		return products;
 	}
+	
+	public ArrayList<Product> selectAllByCtg(String ctg) {
+		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		ResultSet rs = null;
+		ArrayList<Product> products = new ArrayList<Product>();
+		PreparedStatement pstmt = null;
 
+		String sql = "select * from shop_product where category=?";
+		 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ctg);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				products.add(new Product(rs.getInt(1), rs.getString(2), rs
+						.getInt(3), rs.getInt(4), rs.getString(5), rs
+						.getString(6), rs.getString(7),rs.getString(8)));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		finally {
+			try {
+				// �ڿ� ��ȯ
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return products;
+	}
 	
 
 	public void update(Product p) {

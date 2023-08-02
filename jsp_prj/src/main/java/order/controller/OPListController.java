@@ -38,10 +38,16 @@ public class OPListController extends HttpServlet {
 		Service service = new ServiceImpl();
 		
 		String standard = request.getParameter("sort");
+		String ctg = request.getParameter("category");
 		
 		ArrayList<Product> products= service.getProductAll();
 		if (standard==null) {
 			products= service.getSortProduct("num");
+			if (ctg==null) {
+				products= service.getSortProduct("num");
+			}else {
+				products= service.getProductsByCategory(ctg);
+			}
 		}
 		else if(standard.equals("num")) {
 			products= service.getSortProduct("num");

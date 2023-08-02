@@ -41,10 +41,17 @@ public class ListController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String s_id = (String) session.getAttribute("id");
 		String std = request.getParameter("sort");
+		String ctg = request.getParameter("category");
+		
 		ArrayList<Product> products = service.getProductsById(s_id,std);
 
 		if (std==null) {
 			products= service.getProductsById(s_id,"num");
+			if (ctg==null) {
+				products= service.getProductsById(s_id,"num");	
+			}else {
+				products= service.getProductsByCategory(ctg);
+			}
 		}
 		else if(std.equals("num")) {
 			products= service.getProductsById(s_id,"num");

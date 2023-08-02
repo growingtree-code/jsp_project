@@ -16,7 +16,7 @@
 새 상품 등록
 </a>
 <form action="${pageContext.request.contextPath }/seller/List" method="post">
-<h5>상품 정렬</h5>
+<th>상품 정렬</th>
 <td>
 	<select name ="sort" onchange="this.form.submit()">
 		<option value="0">정렬 선택</option>
@@ -27,11 +27,23 @@
 </td>
 </form>
 
+<form action="${pageContext.request.contextPath }/seller/List" method="post">
+<th>카테고리별 정렬</th>
+<td>
+	<select name ="category" onchange="this.form.submit()">
+		<option value="0">정렬 선택</option>
+		<option value="FOOD">음식</option>
+		<option value="FURNITURE">가구</option>
+		<option value="IT">IT제품</option>
+	</select>
+</td>
+</form>
 <table border="1">
-<tr><th>상품번호</th><th>상품명</th><th>상품카테고리</th><th>리뷰</th></tr>
+<tr><th>상품번호</th><th>상품명</th><th>가격</th><th>상품카테고리</th><th>리뷰</th></tr>
 <c:forEach var="p" items="${products }">
 <tr>
 <td>${p.num }</td><td><a href="${pageContext.request.contextPath }/seller/detail?num=${p.num }">${p.name }</a></td>
+<td>${p.price }</td>
 <td>${p.category }</td>
 <td>
 <a href="${pageContext.request.contextPath }/review/list?num=${p.num }">리뷰보기</a>

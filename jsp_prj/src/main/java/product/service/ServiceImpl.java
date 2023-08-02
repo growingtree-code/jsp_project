@@ -23,6 +23,11 @@ public class ServiceImpl implements Service {
 		// TODO Auto-generated method stub
 		return dao.selectAllById(s_id, std);
 	}
+	
+	public ArrayList<Product> getProductsByCategory(String ctg) {
+		// TODO Auto-generated method stub
+		return dao.selectAllByCtg(ctg);
+	}
 
 	public Product getProduct(int num) {
 		// TODO Auto-generated method stub

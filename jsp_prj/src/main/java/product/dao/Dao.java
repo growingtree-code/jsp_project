@@ -21,6 +21,8 @@ public interface Dao {
 	
 	void updateQuantity(int q, int num);
 	
-	//Á¤·Ä
 	ArrayList<Product> sortProduct(String standard);
+
+	ArrayList<Product> selectAllByCtg(String ctg);
+	
 }
