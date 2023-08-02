@@ -10,4 +10,5 @@ public interface Service {
 	ArrayList<Order> orderList(String o_id, int o_state);
 	void editState(String type, int num);
 	void delOrder(int num);
+	double calcDiscount(String o_id);
 }
