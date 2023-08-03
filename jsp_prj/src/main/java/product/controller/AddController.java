@@ -58,7 +58,7 @@ public class AddController extends HttpServlet {
 		//String uploadPath = "C:\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\shop_img";
 		String uploadPath = "C:\\eclipseworkspace\\web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\shop_img";
 		try {
-			multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
+			multi = new MultipartRequest(request, uploadPath, maxSize, "euc-kr", new DefaultFileRenamePolicy());
 			p.setName(multi.getParameter("name"));
 			p.setCategory(multi.getParameter("category"));
 			p.setQuantity(Integer.parseInt(multi.getParameter("quantity")));
