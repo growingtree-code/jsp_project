@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
 	function a(price, discount){
@@ -20,8 +23,8 @@
 </script>
 </head>
 <body>
-<form name="f" action="${pageContext.request.contextPath }/order/add" method="post">
-<table border="1">
+<form name="f" action="${pageContext.request.contextPath }/order/add" method="post" class="container border border-primary rounded-4 border-opacity-25" style="margin-top: 30px; padding: 30px;">
+<table border="1" class="table table-striped">
 <tr>
 <th>상품명</th><td>${p.name }</td>
 </tr>
@@ -53,8 +56,8 @@
 <th>상품상세설명</th><td>${p.content }</td>
 </tr>
 <tr>
-<td colspan="2"><input type="submit" value="즉시주문">
-<input type="button" value="장바구니에 담기" onclick="b()"></td>
+<td colspan="2"><input type="submit" class="btn btn-primary" value="즉시주문">
+<input type="button" value="장바구니에 담기" onclick="b()" class="btn btn-primary"></td>
 </tr>
 </table>
 <input type="hidden" name="num" value="${p.num }">
