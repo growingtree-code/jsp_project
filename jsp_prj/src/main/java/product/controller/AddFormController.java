@@ -30,6 +30,9 @@ public class AddFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
 		// TODO Auto-generated method stub
 		String path = "/view/seller/addForm.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
