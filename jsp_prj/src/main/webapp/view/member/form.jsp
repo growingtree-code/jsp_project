@@ -35,10 +35,6 @@
 			<label for="addr" class="form-label">ADDRESS</label>
 			<input type="text" class="form-control" name="addr" id="addr">
 		</div>
-		<div class="mb-3">
-			<label for="addr" class="form-label">ADDRESS</label>
-			<input type="text" class="form-control" name="addr" id="addr">
-		</div>
 		
 		<p class="form-label">회원종류</p>
 		
